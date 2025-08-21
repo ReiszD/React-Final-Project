@@ -8,9 +8,9 @@ import Footer from "../components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Media = () => {
-  const [movies, setMovies] = useState();
+  const [movies, setMovies] = useState([]);
 
-  const [searchTitle, setSearchTitle] = useState();
+  const [searchTitle, setSearchTitle] = useState("");
 
   const [medias, setMedias] = useState([]);
 
@@ -44,11 +44,11 @@ const Media = () => {
       setMovies(
         movies
           .slice()
-          .sort((a, b)(a.Title.localeCompare) - b.Title.localeCompare)
+          .sort((a, b) => (a.Title.localeCompare) - (b.Title.localeCompare))
       );
   }
 
-  useEffect(() => {
+  useEffect((Title) => {
     async function fetchMedia() {
       const { data } = await axios.get(
         `https://www.omdbapi.com/?apikey=253f9b44&s=${Title}`
