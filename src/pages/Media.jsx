@@ -48,12 +48,12 @@ const Media = () => {
       );
   }
 
-  useEffect((Title) => {
+  useEffect((searchTitle) => {
     async function fetchMedia() {
       const { data } = await axios.get(
-        `https://www.omdbapi.com/?apikey=253f9b44&s=${Title}`
+        `https://www.omdbapi.com/?apikey=253f9b44&s=${searchTitle}`
       );
-      setMedias(data);
+      setMedias(data.Search);
     }
     fetchMedia();
   }, []);
@@ -90,8 +90,8 @@ const Media = () => {
         </div>
         <div className="media__list">
           <div className="media__card">
-            {medias.map((media) => (
-            <div className="media__card--container">
+            {medias.map((media, index) => (
+            <div className="media__card--container" key={index}>
               <h2>{media.Title}</h2>
               <p>{media.Type}</p>
               <p>{media.Year}</p>
