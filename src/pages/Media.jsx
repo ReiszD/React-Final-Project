@@ -113,9 +113,7 @@ const Media = () => {
             {medias && medias.length > 0 ? (
               medias.map((media) => (
                 <div className="media__card--container" key={media.imdbID} onClick={() => navigate(`${media.imdbID}`)}>
-                  {/* <Link to="/mediacards"> */}
                   <h2>{media.Title}</h2>
-                  {/* </Link> */}
                   <p>{media.Type}</p>
                   <p>{media.Year}</p>
                   <img src={media.Poster} alt={media.Title} />

@@ -2,21 +2,23 @@ import React, { useEffect, useState } from "react";
 import "./MediaCards.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import gg_poster from "../assets/gg_poster.jpg";
 
 const MediaCards = () => {
   const [movies, setMovies] = useState([]);
+  const { imdbID } = useParams();
 
-  async function fetchMedia(imdbID) {
-    if (!imdbID) return; // Prevent searching with an empty string
-
+  async function fetchMedia() {
+    if (!imdbID) return;
+    
     try {
       const { data } = await axios.get(
         `https://www.omdbapi.com/?i=${imdbID}&apikey=253f9b44`
       );
+      console.log(data);
     } catch (error) {
       console.error("Error fetching media:", error);
       setMovies([]);
@@ -25,7 +27,7 @@ const MediaCards = () => {
 
   useEffect(() => {
     fetchMedia();
-  }, []);
+  }, [imdbID]);
 
   return (
     <div>
