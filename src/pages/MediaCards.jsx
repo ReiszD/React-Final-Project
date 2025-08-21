@@ -8,12 +8,12 @@ import axios from "axios";
 import gg_poster from "../assets/gg_poster.jpg";
 
 const MediaCards = () => {
-  const [movies, setMovies] = useState([]);
+  const [movie, setMovie] = useState([]);
   const { imdbID } = useParams();
 
   async function fetchMedia() {
     if (!imdbID) return;
-    
+
     try {
       const { data } = await axios.get(
         `https://www.omdbapi.com/?i=${imdbID}&apikey=253f9b44`
@@ -21,8 +21,8 @@ const MediaCards = () => {
       console.log(data);
     } catch (error) {
       console.error("Error fetching media:", error);
-      setMovies([]);
     }
+    setMovie([]);
   }
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const MediaCards = () => {
               <FontAwesomeIcon icon="arrow-left" />
             </button>
           </Link>
-          {movies.map((movie) => (
+          {/* {movie.map((media) => ( */}
             <div className="media__selected" key={movie.imdbID}>
               <figure className="media__selected--img">
                 <img src={movie.Poster} alt="" className="media__img" />
@@ -50,7 +50,7 @@ const MediaCards = () => {
                 <p className="media__plot">{movie.Plot}</p>
               </div>
             </div>
-          ))}
+          {/* ))} */}
         </div>
       </div>
       <Footer />
