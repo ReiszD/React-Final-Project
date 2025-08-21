@@ -55,7 +55,7 @@ select {
 .media__card {
     background-color: #fff;
     color: #242424;
-    margin: 16px;
+    transform: translateY(-300px);
     border-radius: 16px;
     box-shadow: 0 8px 16px rgba(19, 16, 16, 0.628);
 }

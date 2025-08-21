@@ -12,7 +12,7 @@ const Media = () => {
 
   const [searchTitle, setSearchTitle] = useState();
 
-  // const [medias, setMedias] = useState([]);
+  const [medias, setMedias] = useState([]);
 
   function onSearch() {
     fetchMedia(searchTitle);
@@ -48,15 +48,15 @@ const Media = () => {
       );
   }
 
-  // useEffect(() => {
-  //   async function fetchMedia() {
-  //     const { data } = await axios.get(
-  //       `https://www.omdbapi.com/?apikey=253f9b44&s=${Title}`
-  //     );
-  //     setMedias(data);
-  //   }
-  //   fetchMedia();
-  // }, []);
+  useEffect(() => {
+    async function fetchMedia() {
+      const { data } = await axios.get(
+        `https://www.omdbapi.com/?apikey=253f9b44&s=${Title}`
+      );
+      setMedias(data);
+    }
+    fetchMedia();
+  }, []);
 
   return (
     <div className="media">
@@ -90,13 +90,14 @@ const Media = () => {
         </div>
         <div className="media__list">
           <div className="media__card">
-            {/* {medias.map((media) => ( */}
+            {medias.map((media) => (
             <div className="media__card--container">
-              <h2>Title</h2>
-              <p>Type</p>
-              <p>Year</p>
+              <h2>{media.Title}</h2>
+              <p>{media.Type}</p>
+              <p>{media.Year}</p>
+              <img src={media.Poster} alt="" />
             </div>
-            {/* ))} */}
+            ))}
           </div>
         </div>
       </div>
