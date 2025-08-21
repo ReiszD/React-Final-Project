@@ -8,24 +8,31 @@ import axios from "axios";
 import gg_poster from "../assets/gg_poster.jpg";
 
 const MediaCards = () => {
-    const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
 
-    async function fetchMedia(imdbID) {
+  async function fetchMedia(imdbID) {
+    if (!imdbID) return; // Prevent searching with an empty string
+
+    try {
       const { data } = await axios.get(
-        `https://www.omdbapi.com/?i=${imbdID}&apikey=253f9b44`
+        `https://www.omdbapi.com/?i=${imdbID}&apikey=253f9b44`
       );
-      setMovies(data);
+    } catch (error) {
+      console.error("Error fetching media:", error);
+      setMovies([]);
     }
-    useEffect(() => {
-      fetchMedia();
-    }, []);
+  }
+
+  useEffect(() => {
+    fetchMedia();
+  }, []);
 
   return (
     <div>
       <Navbar />
       <div className="container">
         <div className="row">
-          <Link>
+          <Link to="/media">
             <button className="back__icon">
               <FontAwesomeIcon icon="arrow-left" />
             </button>
