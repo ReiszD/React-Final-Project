@@ -1,29 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./MediaCards.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
+import gg_poster from "../assets/gg_poster.jpg";
 
 const MediaCards = () => {
+    const [movies, setMovies] = useState([]);
+
+    async function fetchMedia(imdbID) {
+      const { data } = await axios.get(
+        `https://www.omdbapi.com/?i=${imbdID}&apikey=253f9b44`
+      );
+      setMovies(data);
+    }
+    useEffect(() => {
+      fetchMedia();
+    }, []);
+
   return (
     <div>
       <Navbar />
       <div className="container">
         <div className="row">
-            <Link>
-            <FontAwesomeIcon icon="arrow-left" />
-            </Link>
-          <div className="media__selected">
-            <figure className="media__selected--img">
-              <img src="" alt="" />
-            </figure>
-          </div>
-          <div className="media__selected--description">
-            <h2>Title</h2>
-            <p>Actors</p>
-            <p>Plot</p>
-          </div>
+          <Link>
+            <button className="back__icon">
+              <FontAwesomeIcon icon="arrow-left" />
+            </button>
+          </Link>
+          {movies.map((movie) => (
+            <div className="media__selected" key={movie.imdbID}>
+              <figure className="media__selected--img">
+                <img src={movie.Poster} alt="" className="media__img" />
+              </figure>
+              <div className="media__selected--description">
+                <h2 className="media__title">{movie.Title}</h2>
+                <p className="media__actors">{movie.Actors}</p>
+                <p className="media__plot">{movie.Plot}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
       <Footer />

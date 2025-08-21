@@ -11,7 +11,7 @@ const App = () => {
         <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/media" element={<Media />}></Route>
-        <Route path="/mediacards" element={<MediaCards />}></Route>
+        <Route path="/media/:imdbID" element={<MediaCards />}></Route>
         </Routes>
       </div>
     </Router>

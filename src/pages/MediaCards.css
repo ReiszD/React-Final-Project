@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 200px 12px;
+}
+
+.back__icon {
+    transform: scale(2) translateX(15px);
+    border-radius: 12px;
+    background-color: #371277;
+    color: #aeae16;
+}
+
+.media__selected {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+}
+
+.media__img {
+    width: 50%;
+}
+
+.media__selected--description {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
