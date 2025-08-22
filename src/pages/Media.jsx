@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Media.css";
 import Navbar from "../components/Navbar";
 import movie_banner from "../assets/movie_banner.avif";
+import movie_poster from "../assets/movie-poster.jpg";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Footer from "../components/Footer";
@@ -75,7 +76,9 @@ const Media = () => {
         <FontAwesomeIcon icon="spinner" />
       </div> : (
       <div className="background">
-        <img src={movie_banner} alt="" className="banner__img" />
+        <img src={movie_poster} alt="" className="banner__img" />
+        <div className="search__here">
+
         <input
           className="search__bar"
           type="search"
@@ -87,8 +90,9 @@ const Media = () => {
               onSearch();
             }
           }}
-        />
+          />
         <FontAwesomeIcon icon="magnifying-glass" className="search__icon" onClick={onSearch} />
+          </div>
         <div className="search__results">
           <h1 className="title">Search Results</h1>
           {medias.length > 0 && (
@@ -111,7 +115,7 @@ const Media = () => {
         <div className="media__list">
           <div className="media__card">
             {medias && medias.length > 0 ? (
-              medias.map((media) => (
+              medias.slice(0,6).map((media) => (
                 <div className="media__card--container" key={media.imdbID}>
                   <h2 className="card__title" onClick={() => navigate(`${media.imdbID}`)}>{media.Title}</h2>
                   <p className="card__type">{media.Type}</p>

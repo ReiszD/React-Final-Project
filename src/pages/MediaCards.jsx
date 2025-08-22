@@ -32,14 +32,14 @@ const MediaCards = () => {
   return (
     <div>
       <Navbar />
-      <div className="container">
+      <div className="mediacards__container">
         <div className="row">
           <Link to="/media">
             <button className="back__icon">
               <FontAwesomeIcon icon="arrow-left" />
             </button>
           </Link>
-            
+
           <div className="media__selected" key={movies.imdbID}>
             <figure className="media__selected--img">
               <img src={movies.Poster} alt="" className="media__img" />

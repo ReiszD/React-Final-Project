@@ -1,18 +1,26 @@
 .background {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .banner__img {
-  transform: scaleY(0.5) translateY(-600px);
+  height: 30vh;
   width: 100%;
   mask-image: linear-gradient(to right, transparent, black 75%);
   -weblit-mask-image: linear-gradient(to right, transparent, black 75%);
-  filter: invert();
   z-index: -1;
+  opacity: .8;
+}
+
+.search__here {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-100px);
 }
 
 .search__bar {
-  transform: translateY(-600px) translateX(100px);
   border-radius: 20px;
   width: 80%;
   height: 50px;
@@ -22,8 +30,9 @@
 
 .search__icon {
   color: #242424;
-  transform: translateY(-600px) translateX(60px);
   cursor: pointer;
+  transform: translateX(-40px);
+  font-size: large;
   transition: all 300ms ease;
 }
 
@@ -34,12 +43,11 @@
 }
 
 .search__results {
-  margin: 0 auto;
   padding: 0 24px;
+  transform: translateY(-20px);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  transform: translateY(-500px);
+  justify-content: flex-end;
   transition: all 300ms ease;
 }
 
@@ -52,7 +60,6 @@ select {
 
 .media__card {
   color: #fff;
-  transform: translateY(-300px);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -63,12 +70,27 @@ select {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 8px;
+  padding: 24px;
+}
+
+.card__title {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 16px;
 }
 
 .card__title:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.card__type {
+    padding-bottom: 4px;
+    text-transform: capitalize;
+}
+
+.card__year {
+    padding-bottom: 4px;
 }
 
 .card__img {
