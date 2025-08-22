@@ -8,7 +8,7 @@
 .back__icon {
     transform: scale(2) translateX(15px);
     border-radius: 12px;
-    background-color: #371277;
+    background-image: linear-gradient(45deg, #1f1f9b, #610c96);
     color: #aeae16;
 }
 
@@ -20,11 +20,25 @@
 }
 
 .media__img {
-    width: 50%;
+    width: 100%;
 }
 
 .media__selected--description {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 12px;
+}
+
+.media__plot {
+    padding-left: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (max-width: 550px) {
+    .media__title {
+        padding-left: 12px;
+    }
 }

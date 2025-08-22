@@ -1,5 +1,5 @@
 .footer {
-    padding: 20px 4px;
+    padding: 10px 4px;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -17,12 +17,24 @@
     cursor: pointer;
 }
 
+.footer__icons img:hover{
+    color: #808080;
+}
+
 .footer ul {
     display: flex;
     align-items: center;
     justify-content: center;
     list-style: none;
     gap: 20px;
+}
+
+.footer li {
+    cursor: pointer;
+}
+
+.footer li:hover {
+    text-decoration: underline;
 }
 
 .copyright {

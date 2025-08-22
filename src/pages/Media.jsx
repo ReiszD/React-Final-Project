@@ -112,11 +112,11 @@ const Media = () => {
           <div className="media__card">
             {medias && medias.length > 0 ? (
               medias.map((media) => (
-                <div className="media__card--container" key={media.imdbID} onClick={() => navigate(`${media.imdbID}`)}>
-                  <h2>{media.Title}</h2>
-                  <p>{media.Type}</p>
-                  <p>{media.Year}</p>
-                  <img src={media.Poster} alt={media.Title} />
+                <div className="media__card--container" key={media.imdbID}>
+                  <h2 className="card__title" onClick={() => navigate(`${media.imdbID}`)}>{media.Title}</h2>
+                  <p className="card__type">{media.Type}</p>
+                  <p className="card__year">{media.Year}</p>
+                  <img src={media.Poster} alt={media.Title} className="card__img" />
                 </div>
               ))
             ) : (
