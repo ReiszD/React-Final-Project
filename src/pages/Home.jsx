@@ -6,13 +6,8 @@ import movie_poster from "../assets/movie-poster.jpg";
 import Footer from "../components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Home = ({ setSearchTitle, fetchMedia }) => {
+const Home = () => {
   const navigate = useNavigate();
-  // const [searchTitle, setSearchTitle] = useState("");
-
-  function onSearch() {
-    fetchMedia(searchTitle);
-  }
 
   return (
     <div className="home">
@@ -24,20 +19,15 @@ const Home = ({ setSearchTitle, fetchMedia }) => {
           <input
             className="search__input"
             type="search"
-            value={searchTitle}
-            placeholder="Search Here"
-            onChange={(event) => setSearchTitle(event.target.value)}
-            onKeyDown={(event) => {
-              if (event.key === "Enter") {
-                onSearch();
-              } 
-            } }
+            placeholder="Search For Movies or Shows Here"
           />
+          
           <FontAwesomeIcon
             icon="magnifying-glass"
             className="search__btn"
             onClick={() => navigate("/media")}
-          />
+            />
+            
         </div>
         <img src={movie_poster} alt="" className="background__img" />
 
