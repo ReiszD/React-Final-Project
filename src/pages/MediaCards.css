@@ -1,44 +1,96 @@
-.mediacards__container {
+.media {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 200px 12px;
+    flex-wrap: wrap;
+}
+
+.mediacards__container {
+    padding-top: 10%;
+    display: flex;
+    justify-content: space-between;
+    transition: all 300ms ease;
+}
+
+.back__btn {
+    padding-left: 12px;
 }
 
 .back__icon {
-    transform: scale(2) translateX(15px);
-    border-radius: 12px;
+    padding: 8px;
+    font-size: 24px;
+    border-radius: 18px;
     background-image: linear-gradient(45deg, #1f1f9b, #610c96);
-    color: #aeae16;
+    color: #a80a0a;
 }
 
 .media__selected {
+    width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     padding: 5%;
 }
 
 .media__img {
-    width: 100%;
+    width: 200%;
+    transition: all 300ms ease;
 }
 
 .media__selected--description {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
+    text-align: right;
+    font-size: 24px;
+    transition: all 300ms ease;
+}
+
+.media__title {
+    padding: 24px 0;
+    transition: all 300ms ease;
+}
+
+.media__actors {
+    padding: 24px 0;
+    transition: all 300ms ease;
 }
 
 .media__plot {
-    padding-left: 12px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    width: 50%;
+    transform: translateX(100%);
+    padding-top: 24px;
+    transition: all 300ms ease;
+}
+
+@media (max-width: 700px) {
+    .back__icon{
+        font-size: 12px;
+    }
+    .mediacards__container {
+        padding-top: 20%;
+    }
+    .media__img {
+        width: 100%;
+    }
+    .media__selected--description {
+        font-size: 15px;
+    }
+    .media__title {
+        padding: 12px 0;
+    }
+    .media__actors {
+        padding: 12px 0;
+    }
+    .media__plot {
+        padding-top: 12px;
+    }
 }
 
 @media (max-width: 550px) {
-    .media__title {
-        padding-left: 12px;
+    .mediacards__container {
+        padding-top: 30%;
+    }
+
+    .media__img {
+        width: 100%;
+    }
+
+    .media__selected--description {
+        font-size: 12px;
     }
 }

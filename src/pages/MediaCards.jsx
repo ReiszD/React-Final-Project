@@ -18,7 +18,7 @@ const MediaCards = () => {
         `https://www.omdbapi.com/?i=${imdbID}&apikey=253f9b44`
       );
       console.log(data);
-      setMovies(data)
+      setMovies(data);
     } catch (error) {
       console.error("Error fetching media:", error);
       setMovies([]);
@@ -30,15 +30,17 @@ const MediaCards = () => {
   }, [imdbID]);
 
   return (
-    <div>
+    <div className="media">
       <Navbar />
       <div className="mediacards__container">
         <div className="row">
-          <Link to="/media">
-            <button className="back__icon">
-              <FontAwesomeIcon icon="arrow-left" />
-            </button>
-          </Link>
+          <div className="back__btn">
+            <Link to="/media">
+              <button className="back__icon">
+                <FontAwesomeIcon icon="arrow-left" /> Back to Results
+              </button>
+            </Link>
+          </div>
 
           <div className="media__selected" key={movies.imdbID}>
             <figure className="media__selected--img">

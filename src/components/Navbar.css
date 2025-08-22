@@ -44,7 +44,7 @@
 .btn__menu {
   background-color: transparent;
   font-size: 40px;
-  text-align: center;
+  text-align: right;
   color: #fff;
   display: none;
   border: none;
@@ -115,6 +115,11 @@
 }
 
 @media (max-width: 550px) {
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
   .navbar ul {
     display: none;
   }

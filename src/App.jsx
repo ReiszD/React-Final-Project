@@ -5,6 +5,32 @@ import Home from "./pages/Home.jsx";
 import MediaCards from "./pages/MediaCards.jsx";
 
 const App = () => {
+  const [searchTitle, setSearchTitle] = useState("");
+
+  async function fetchMedia(title) {
+
+    if (!title) return;
+    
+    try {
+      const { data } = await axios.get(
+        `https://www.omdbapi.com/?apikey=253f9b44&s=${title}`
+      );
+      if (data.Search) {
+        setMedias(data.Search);
+      } else {
+        setMedias([]);
+      }
+    } catch (error) {
+      console.error("Error fetching media:", error);
+      setMedias([]);
+    }
+    
+  }
+
+  function onSearch() {
+    fetchMedia(searchTitle);
+  }
+
   return (
     <Router>
       <div className="App">
