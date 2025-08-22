@@ -10,7 +10,7 @@ const Home = () => {
     <div className="home">
       <Navbar />
       <div className="container">
-        <h2 className="home__title">Movie Information Database</h2>
+        <h2 className="home__title">Find Your Perfect Movie</h2>
         <img src={movie_poster} alt="" className="background__img" />
         <Link to="/media">
           <button className="btn">Browse Collection</button>

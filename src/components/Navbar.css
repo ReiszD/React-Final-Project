@@ -1,41 +1,128 @@
 .nav {
-    width: 100%;
-    padding: 20px 6%;
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    font-size: 16px;
-    color: #fff;
-    background-image: linear-gradient(180deg, rgba(0,0,0,0.7) 10%, transparent);
-    z-index: 2;
+  width: 100%;
+  padding: 20px 6%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  font-size: 16px;
+  color: #fff;
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.7) 10%,
+    transparent
+  );
+  z-index: 2;
 }
 
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
 }
 
-.navbar img{
-    width: 90px;
-    border-radius: 10px;
+.navbar img {
+  width: 90px;
+  border-radius: 10px;
 }
 
 .navbar ul {
-    padding-left: 64px;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    list-style: none;
-    gap: 50px;
+  padding-left: 64px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 50px;
 }
 
 .navbar li {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .navbar li:hover {
+  text-decoration: underline;
+}
+
+.btn__menu {
+  background-color: transparent;
+  font-size: 40px;
+  text-align: center;
+  color: #fff;
+  display: none;
+  border: none;
+  z-index: 1;
+}
+
+.fa-film {
+  font-weight: bold;
+  z-index: 2;
+  border: none;
+}
+
+.menu__backdrop {
+  position: absolute;
+  background-color: #fff;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 48px;
+  transition: all 300ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.menu--open .menu__backdrop {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  z-index: 100;
+}
+
+.btn__menu--close {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  color: #fff;
+  padding: 8px;
+}
+
+.fa-xmark {
+  font-weight: bold;
+  color: #242424;
+}
+
+.menu__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 0;
+  list-style: none;
+}
+
+.menu__link {
+  font-size: 40px;
+  color: #242424;
+  text-decoration: none;
+}
+
+.menu__link:hover {
     text-decoration: underline;
+    cursor: pointer;
+}
+
+@media (max-width: 550px) {
+  .navbar ul {
+    display: none;
+  }
+
+  .btn__menu {
+    display: block;
+  }
 }
