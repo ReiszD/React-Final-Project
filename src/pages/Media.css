@@ -109,25 +109,3 @@ select {
 .spinner__icon img {
   width: 60px;
 }
-
-@media (max-width: 798px) {
-  .search__bar {
-    transform: translateY(-520px) translateX(40px);
-  }
-  .search__icon {
-    transform: translateY(-520px);
-  }
-}
-
-@media (max-width: 550px) {
-  .search__results {
-    padding-top: 5px;
-    transform: translateY(-400px);
-  }
-  .search__bar {
-    transform: translateY(-400px) translateX(40px);
-  }
-  .search__icon {
-    transform: translateY(-400px);
-  }
-}
